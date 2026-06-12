@@ -354,7 +354,9 @@ const FooterWidget = ({ content }: { content: any }) => (
         onClick={() => soundSynth.playClick()}
       >{content.email}</a>
       <a 
-        href="#" 
+        href={content.socialLink} 
+        target="_blank"
+        rel="noopener noreferrer"
         className="hover:text-black transition-colors"
         onMouseEnter={() => soundSynth.playHover()}
         onClick={() => soundSynth.playClick()}

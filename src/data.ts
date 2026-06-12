@@ -4,8 +4,8 @@ export const appConfig: AppConfig = {
   header: {
     title: "Pravin Vegare",
     links: [
-      { label: "LinkedIn", url: "#" },
-      { label: "Resume", url: "#" }
+      { label: "LinkedIn", url: "https://www.linkedin.com/in/pravinvegare/" },
+      { label: "Resume", url: "https://docs.google.com/document/d/1vR4X3Qp5uflbuoXELnDKnBl1kmIBikPUc1w5fFrowzg/edit?usp=sharing" }
     ]
   },
   widgets: [
@@ -104,7 +104,8 @@ export const appConfig: AppConfig = {
       content: {
         name: "Pravin Vegare",
         email: "Pravinvegare123@gmail.com",
-        social: "Linkedin"
+        social: "Linkedin",
+        socialLink: "https://www.linkedin.com/in/pravinvegare/"
       }
     },
   ]
