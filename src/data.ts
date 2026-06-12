@@ -16,7 +16,7 @@ export const appConfig: AppConfig = {
       content: {
         subtitle: "Designing. Building. Learning. Improving.",
         title: "Hi, I'm Pravin Vegare.",
-        emoji: "👋",
+        emoji: "🖐️",
         description: "My goal is to contribute to the world through thoughtful technology, exceptional user experiences, and products that improve everyday life.",
         // Please ensure your uploaded image is named exactly "profile.png" or adjust this path
         image: "/profile.png"
@@ -36,11 +36,11 @@ export const appConfig: AppConfig = {
       type: "frameworks",
       theme: "coral",
       content: {
-        title: "Frameworks<br />Behind Our Thinking",
+        title: "FrameworksBehind Our Thinking",
         items: [
-          { label: "Leadership & Decision Making (Amazon)", url: "#" },
-          { label: "Customer Understanding (JTBD)", url: "#" },
-          { label: "Execution & Learning (Lean Startup)", url: "#" }
+          { label: "Leadership & Decision Making (Amazon)", url: "https://www.amazon.jobs/content/en/our-workplace/leadership-principles" },
+          { label: "Customer Understanding (JTBD)", url: "https://strategyn.com/jobs-to-be-done/" },
+          { label: "Execution & Learning (Lean Startup)", url: "https://theleanstartup.com/principles" }
         ]
       }
     },

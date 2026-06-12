@@ -5,7 +5,7 @@ import { soundSynth } from '../utils/audio';
 import { motion, AnimatePresence } from 'motion/react';
 
 const bgColors: Record<string, string> = {
-  yellow: "#FDE460",
+  yellow: "#FEDA64",
   dark: "#1A1A1A",
   coral: "#FF6B6C",
   white: "#ffffff"
@@ -315,7 +315,9 @@ const ProjectsWidget = ({ content }: { content: any }) => {
   );
 };
 
-const ContactWidget = ({ content }: { content: any }) => (
+const ContactWidget = ({ content }: { content: any }) => {
+  const [mailLink,setMailLink] = useState(`mailto:${content.email}?subject=Portfolio Inquiry`)
+  return (
   <motion.div 
     initial={{ opacity: 0, y: 40 }}
     whileInView={{ opacity: 1, y: 0 }}
@@ -329,10 +331,14 @@ const ContactWidget = ({ content }: { content: any }) => (
     <div className="max-w-md mx-auto space-y-2 mt-4 text-black text-center font-medium italic">
       <p className="inline md:block">{content.description}</p>{' '}
       <a 
-        href={`mailto:${content.email}`} 
+        href={mailLink} 
+        target="_top"
         className="hover:text-[#3B4BE8] underline"
         onMouseEnter={() => soundSynth.playHover()}
-        onClick={() => soundSynth.playClick()}
+        onClick={(e) => {
+          
+          soundSynth.playClick();
+        }}
       >
         {content.email}
       </a>{' '}
@@ -340,6 +346,7 @@ const ContactWidget = ({ content }: { content: any }) => (
     </div>
   </motion.div>
 );
+}
 
 const FooterWidget = ({ content }: { content: any }) => (
   <div 
@@ -349,9 +356,12 @@ const FooterWidget = ({ content }: { content: any }) => (
     <div className="flex items-center gap-8 text-xs md:text-sm font-medium text-gray-600">
       <a 
         href={`mailto:${content.email}`} 
+        target="_top"
         className="hover:text-black transition-colors"
         onMouseEnter={() => soundSynth.playHover()}
-        onClick={() => soundSynth.playClick()}
+        onClick={(e) => {
+          soundSynth.playClick();
+        }}
       >{content.email}</a>
       <a 
         href={content.socialLink} 
