@@ -36,7 +36,7 @@ const HeroWidget = ({ content }: { content: any }) => (
         whileInView={{ opacity: 1, x: 0 }}
         viewport={{ once: true, margin: "0px 0px -50px 0px" }}
         transition={{ duration: 0.6, delay: 0.2 }}
-        className="font-bold text-[#3B4BE8] text-sm md:text-base tracking-wide uppercase"
+        className="font-bold text-[#483186] text-sm md:text-base tracking-wide uppercase"
       >
         {content.subtitle}
       </motion.h3>
@@ -45,7 +45,7 @@ const HeroWidget = ({ content }: { content: any }) => (
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "0px 0px -50px 0px" }}
         transition={{ duration: 0.8, delay: 0.3 }}
-        className="text-5xl sm:text-6xl md:text-8xl font-black font-display text-[#3B4BE8] leading-[1.1] tracking-tight"
+        className="text-5xl sm:text-6xl md:text-8xl font-black font-display text-[#483186] leading-[1.1] tracking-tight"
       >
         {content.title}
         <span className="text-black inline-block ml-2 md:ml-4">{content.emoji}</span>
