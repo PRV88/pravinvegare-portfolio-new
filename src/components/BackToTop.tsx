@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { ArrowUp } from 'lucide-react';
-import { soundSynth } from '../utils/audio';
 
 export const BackToTop: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -20,7 +19,6 @@ export const BackToTop: React.FC = () => {
   }, []);
 
   const scrollToTop = () => {
-    soundSynth.playClick();
     window.scrollTo({
       top: 0,
       behavior: 'smooth'
@@ -52,7 +50,6 @@ export const BackToTop: React.FC = () => {
           exit={{ opacity: 0, scale: 0.8, y: 20 }}
           transition={{ duration: 0.3 }}
           onClick={scrollToTop}
-          onMouseEnter={() => soundSynth.playHover()}
           className="fixed bottom-6 right-6 md:bottom-8 md:right-8 p-3 md:p-4 bg-black text-white rounded-full shadow-xl hover:bg-[#3B4BE8] transition-colors z-50 flex items-center justify-center group"
           aria-label="Back to top"
         >

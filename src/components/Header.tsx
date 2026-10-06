@@ -1,18 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { Volume2, VolumeX } from 'lucide-react';
 import { appConfig } from '../data';
-import { soundSynth } from '../utils/audio';
 
 export const Header: React.FC = () => {
   const [isDarkBg, setIsDarkBg] = useState(false);
-  const [isMuted, setIsMuted] = useState(soundSynth.isMuted);
-
-  useEffect(() => {
-    const unsubscribe = soundSynth.subscribe(() => {
-      setIsMuted(soundSynth.isMuted);
-    });
-    return unsubscribe;
-  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -51,23 +41,11 @@ export const Header: React.FC = () => {
           <a
             key={index}
             href={link.url}
-            onMouseEnter={() => soundSynth.playHover()}
-            onClick={() => soundSynth.playClick()}
             className={`font-medium text-sm transition-all duration-1000 hover:opacity-70 underline decoration-wavy underline-offset-4 ${textColorClass} ${decorationColorClass}`}
           >
             {link.label}
           </a>
         ))}
-       
-        <button 
-          onClick={() => soundSynth.toggleMute()}
-          onMouseEnter={() => soundSynth.playHover()}
-          className={`p-1 ml-2 transition-all duration-1000 hover:opacity-70 flex items-center justify-center ${textColorClass}`}
-          aria-label={isMuted ? "Unmute sound" : "Mute sound"}
-          title={isMuted ? "Unmute sound" : "Mute sound"}
-        >
-          {isMuted ? <VolumeX size={20} /> : <Volume2 size={20} />}
-        </button>
       </nav>
     </header>
   );

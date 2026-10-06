@@ -12,7 +12,7 @@ export const appConfig: AppConfig = {
     {
       id: "hero-1",
       type: "hero",
-      theme: "yellow",
+      theme: "white",
       content: {
         subtitle: "Designing. Building. Learning. Improving.",
         title: "Hi, I'm Pravin Vegare.",
@@ -23,18 +23,9 @@ export const appConfig: AppConfig = {
       }
     },
     {
-      id: "quote-1",
-      type: "quote",
-      theme: "dark",
-      content: {
-        text: "You've got to start with the <b>customer experience</b> and work backward to the technology.",
-        author: "Steve Jobs"
-      }
-    },
-    {
       id: "frameworks-1",
       type: "frameworks",
-      theme: "coral",
+      theme: "white",
       content: {
         title: "FrameworksBehind Our Thinking",
         items: [
@@ -89,15 +80,6 @@ export const appConfig: AppConfig = {
     },
     
     {
-      id: "sustainability-1",
-      type: "sustainability",
-      theme: "yellow",
-      content: {
-        treeImage: "/tree.png",
-        subtitle: "Plant Trees. Restore Nature. Secure the Future.",
-        title: "Sustainability is Not a Choice; It's a Responsibility."
-      }
-    },{
       id: "footer-1",
       type: "footer",
       theme: "white",

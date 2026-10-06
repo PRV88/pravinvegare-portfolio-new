@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { WidgetData } from '../types';
 import { TreePine, X } from 'lucide-react';
-import { soundSynth } from '../utils/audio';
+
 import { motion, AnimatePresence } from 'motion/react';
 
 const bgColors: Record<string, string> = {
@@ -36,7 +36,7 @@ const HeroWidget = ({ content }: { content: any }) => (
         whileInView={{ opacity: 1, x: 0 }}
         viewport={{ once: true, margin: "0px 0px -50px 0px" }}
         transition={{ duration: 0.6, delay: 0.2 }}
-        className="font-bold text-[#483186] text-sm md:text-base tracking-wide uppercase"
+        className="font-bold text-[#3B4BE8] text-sm md:text-base tracking-wide uppercase"
       >
         {content.subtitle}
       </motion.h3>
@@ -45,7 +45,7 @@ const HeroWidget = ({ content }: { content: any }) => (
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "0px 0px -50px 0px" }}
         transition={{ duration: 0.8, delay: 0.3 }}
-        className="text-5xl sm:text-6xl md:text-8xl font-black font-display text-[#483186] leading-[1.1] tracking-tight"
+        className="text-3xl sm:text-4xl md:text-5xl font-black font-display text-black leading-[1.1] tracking-tight"
       >
         {content.title}
         <span className="text-black inline-block ml-2 md:ml-4">{content.emoji}</span>
@@ -75,33 +75,6 @@ const HeroWidget = ({ content }: { content: any }) => (
         />
       </div>
     </motion.div>
-  </motion.div>
-);
-
-const QuoteWidget = ({ content }: { content: any }) => (
-  <motion.div 
-    initial={{ opacity: 0, scale: 0.95 }}
-    whileInView={{ opacity: 1, scale: 1 }}
-    viewport={{ once: true, margin: "0px 0px -50px 0px" }}
-    transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-    className="max-w-4xl mx-auto px-6 py-32 md:py-48 flex flex-col items-center text-center"
-  >
-    <blockquote 
-      className="space-y-8 max-w-3xl cursor-pointer group"
-      onMouseEnter={() => {
-        const plainText = content.text.replace(/<[^>]+>/g, '');
-        soundSynth.playSteveJobsVoice(plainText);
-      }}
-      onMouseLeave={() => soundSynth.stopVoice()}
-    >
-      <p 
-        className="text-2xl md:text-4xl text-gray-200 italic font-light leading-relaxed tracking-wide transition-colors duration-500 group-hover:text-white"
-        dangerouslySetInnerHTML={{ __html: content.text }}
-      />
-      <footer className="text-gray-400 text-lg md:text-2xl pt-4 transition-colors duration-500 group-hover:text-gray-300">
-        — {content.author}
-      </footer>
-    </blockquote>
   </motion.div>
 );
 
@@ -140,8 +113,8 @@ const FrameworksWidget = ({ content }: { content: any }) => (
           >
             <a 
               href={item.url}
-              onMouseEnter={() => soundSynth.playHover()}
-              onClick={() => soundSynth.playClick()}
+              
+              
               className="text-xl md:text-3xl text-gray-900 font-medium hover:text-[#3B4BE8] border-b border-gray-900 hover:border-[#3B4BE8] pb-1 transition-colors"
             >
               {item.label}
@@ -197,15 +170,15 @@ const ProjectsWidget = ({ content }: { content: any }) => {
               className="group block cursor-pointer text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-[#3B4BE8] rounded-xl"
               role="button"
               tabIndex={0}
-              onMouseEnter={() => soundSynth.playHover()}
+              
               onClick={() => {
-                soundSynth.playClick();
+                
                 setSelectedProject(item);
               }}
               onKeyDown={(e) => {
                 if (e.key === 'Enter' || e.key === ' ') {
                   e.preventDefault();
-                  soundSynth.playClick();
+                  
                   setSelectedProject(item);
                 }
               }}
@@ -247,10 +220,10 @@ const ProjectsWidget = ({ content }: { content: any }) => {
             <div className="min-h-screen relative">
               <button 
                 onClick={() => {
-                  soundSynth.playClick();
+                  
                   setSelectedProject(null);
                 }}
-                onMouseEnter={() => soundSynth.playHover()}
+                
                 className="absolute top-6 right-6 md:top-12 md:right-12 p-3 bg-white/10 hover:bg-white/20 rounded-full transition-colors z-10"
                 aria-label="Close project details"
               >
@@ -299,8 +272,8 @@ const ProjectsWidget = ({ content }: { content: any }) => {
                     <a 
                       href={selectedProject.link}
                       className="inline-block px-8 py-4 bg-white text-black font-bold uppercase tracking-wider rounded-lg hover:bg-gray-200 transition-colors"
-                      onMouseEnter={() => soundSynth.playHover()}
-                      onClick={() => soundSynth.playClick()}
+                      
+                      
                     >
                       Visit Live Project
                     </a>
@@ -334,11 +307,7 @@ const ContactWidget = ({ content }: { content: any }) => {
         href={mailLink} 
         target="_top"
         className="hover:text-[#3B4BE8] underline"
-        onMouseEnter={() => soundSynth.playHover()}
-        onClick={(e) => {
-          
-          soundSynth.playClick();
-        }}
+        
       >
         {content.email}
       </a>{' '}
@@ -358,67 +327,18 @@ const FooterWidget = ({ content }: { content: any }) => (
         href={`mailto:${content.email}`} 
         target="_top"
         className="hover:text-black transition-colors"
-        onMouseEnter={() => soundSynth.playHover()}
-        onClick={(e) => {
-          soundSynth.playClick();
-        }}
+        
       >{content.email}</a>
       <a 
         href={content.socialLink} 
         target="_blank"
         rel="noopener noreferrer"
         className="hover:text-black transition-colors"
-        onMouseEnter={() => soundSynth.playHover()}
-        onClick={() => soundSynth.playClick()}
+        
+        
       >{content.social}</a>
     </div>
   </div>
-);
-
-const SustainabilityWidget = ({ content }: { content: any }) => (
-  <motion.div 
-    initial={{ opacity: 0, y: 50 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    viewport={{ once: true, margin: "0px 0px -50px 0px" }}
-    transition={{ duration: 0.8, delay: 0 }}
-    className="max-w-5xl mx-auto px-6 py-32 md:py-48 flex flex-col items-center text-center justify-center"
-  >
-    <motion.div 
-      initial={{ scale: 0, rotate: -10 }}
-      whileInView={{ scale: 1, rotate: 0 }}
-      viewport={{ once: true, margin: "0px 0px -50px 0px" }}
-      transition={{ type: "spring", stiffness: 100, delay: 0.2 }}
-      className="mb-8 p-4 relative flex justify-center"
-    >
-      {content.treeImage ? (
-        <img src={content.treeImage} alt="Tree" className="w-32 h-32 object-contain" />
-      ) : (
-        <svg width="120" height="120" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" className="mx-auto drop-shadow-md">
-          <path d="M50 85V60M50 85C50 85 50 90 50 90C50 90 48 90 48 90M50 85C50 85 50 95 50 95M50 60L40 45M50 60L60 45" stroke="#1A1A1A" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round"/>
-          <path d="M58 45C68 45 76 37 76 27C76 17 68 9 58 9C55 9 52 10 50 11C48 10 45 9 42 9C32 9 24 17 24 27C24 37 32 45 42 45C42 45 45 53 50 53C55 53 58 45 58 45Z" fill="#88C03D" stroke="#1A1A1A" strokeWidth="4" strokeLinejoin="round"/>
-          <path d="M58 45C58 45 55 53 50 53C45 53 42 45 42 45L40 45C32 45 24 37 24 27C24 22 26 18 29.5 15C33.5 28 45 35 58 35C66.5 35 73.5 29.5 76 22C76 23.5 76 25 76 27C76 37 68 45 58 45Z" fill="#5E9623"/>
-        </svg>
-      )}
-    </motion.div>
-    <motion.h3 
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
-      viewport={{ once: true, margin: "0px 0px -50px 0px" }}
-      transition={{ duration: 0.5, delay: 0.4 }}
-      className="font-bold text-black text-sm md:text-base italic mb-6"
-    >
-      {content.subtitle}
-    </motion.h3>
-    <motion.h2 
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "0px 0px -50px 0px" }}
-      transition={{ duration: 0.6, delay: 0.6 }}
-      className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-black font-display text-[#3B4BE8] italic leading-tight tracking-tight max-w-4xl mx-auto px-4"
-    >
-      {content.title}
-    </motion.h2>
-  </motion.div>
 );
 
 // ==========================================
@@ -441,7 +361,7 @@ export const WidgetRenderer: React.FC<{ widgets: WidgetData[] }> = ({ widgets })
             }
             const widgetType = entry.target.getAttribute('data-type');
             if (widgetType === 'hero') {
-              soundSynth.playHeroSound();
+              
             }
           }
         });
@@ -494,11 +414,9 @@ export const WidgetRenderer: React.FC<{ widgets: WidgetData[] }> = ({ widgets })
           return (
             <section id={widget.id} key={widget.id} className={`w-full ${textColor} bg-transparent widget-section min-h-screen flex flex-col justify-center relative`} data-theme={widget.theme} data-type={widget.type}>
               {widget.type === 'hero' && <HeroWidget content={widget.content} />}
-              {widget.type === 'quote' && <QuoteWidget content={widget.content} />}
               {widget.type === 'frameworks' && <FrameworksWidget content={widget.content} />}
               {widget.type === 'projects' && <ProjectsWidget content={widget.content} />}
               {widget.type === 'contact' && <ContactWidget content={widget.content} />}
-              {widget.type === 'sustainability' && <SustainabilityWidget content={widget.content} />}
             </section>
           );
         })}

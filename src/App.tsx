@@ -11,7 +11,7 @@ import { BackToTop } from './components/BackToTop';
 import { CursorFollower } from './components/CursorFollower';
 import { appConfig } from './data';
 import { AppConfig } from './types';
-import { soundSynth } from './utils/audio';
+import { SimpleAIChatWidget } from './SimpleAIChatWidget';
 
 export default function App() {
   const [config, setConfig] = useState<AppConfig | null>(null);
@@ -44,7 +44,7 @@ export default function App() {
           <WidgetRenderer widgets={config.widgets} />
         )}
       </main>
-      <BackToTop />
+      <SimpleAIChatWidget />
     </div>
   );
 }
